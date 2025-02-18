@@ -8,7 +8,7 @@ Programming Partner Name:
 
 Other Collaborators (and kudos to people who were especially helpful):
 
-References Used:
+References Used: https://www.geeksforgeeks.org/iterate-over-the-characters-of-a-string-in-java/ I used this resource on the CaesarCipher.java class on line 48 to iterate over characters in a string message
 
 
 ## Reflection Questions

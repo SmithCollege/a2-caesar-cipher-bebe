@@ -19,7 +19,12 @@ public class CaesarCipher {
      * @param offset Offset to use when creating `cipher` of DynamicArray type
      */
     CaesarCipher(int offset){
-        // Fill in here
+        this.offset = offset;
+        Character[] alphabet = new Character[26];
+        for (int i = 0; i < alphabet.length; i++) {
+            alphabet[i] = new Character(97+i);
+        }
+        DynamicArray<Character> cipher = new DynamicArray<>(offset, alphabet);
     }
 
     /** Implementation of linear search that looks through the alphabet
@@ -28,8 +33,11 @@ public class CaesarCipher {
      * @return int indicating position of val in the alphabet array
      */
     public int findIndex(char val){
-        // This is a stub -- fill in the code and return the
-        // value you calculate
+        for (int i = 0; i < alphabet.length; i++) {
+            if (alphabet[i] == val){
+                return i;
+            }
+        }
         return 0;
     }
 
@@ -37,7 +45,11 @@ public class CaesarCipher {
      * @param T message to encode
      * @return encoded message */  
     public String encode(String message){
-        // Fill in here and update return statement based on your code
+        for (int i = 0; i < message.length; i++) {
+            String letter = message.charAt(i);
+        }{
+
+        }
         return new String(); 
      }
 
@@ -50,6 +62,7 @@ public class CaesarCipher {
         // Fill in here and update return statement based on your code
         return new String();
     }
+
 
     public static void main(String[] args) {
     }
