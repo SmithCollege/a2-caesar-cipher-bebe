@@ -19,7 +19,12 @@ public class CaesarCipher {
      * @param offset Offset to use when creating `cipher` of DynamicArray type
      */
     CaesarCipher(int offset){
-        // Fill in here
+        this.offset = offset;
+        Character[] alphabet = new Character[26];
+        for (int i = 0; i < alphabet.length; i++) {
+            alphabet[i] = Character.valueOf((char) ('a' + i));
+        }
+        DynamicArray<Character> cipher = new DynamicArray<>(offset, alphabet);
     }
 
     /** Implementation of linear search that looks through the alphabet
@@ -28,18 +33,34 @@ public class CaesarCipher {
      * @return int indicating position of val in the alphabet array
      */
     public int findIndex(char val){
-        // This is a stub -- fill in the code and return the
-        // value you calculate
-        return 0;
+        for (int i = 0; i < alphabet.length; i++) {
+            if (alphabet[i] == val){
+                return i;
+            } 
+            else{
+                return null;
+            }
+        }
     }
 
     /** Encode a message using the cipher
-     * @param T message to encode
+     * @param String message to encode
      * @return encoded message */  
     public String encode(String message){
-        // Fill in here and update return statement based on your code
-        return new String(); 
-     }
+        for (int i = 0; i < message.length; i++) {
+            String letter = message.charAt(i);
+            // have a letter and want to encode it by adding an offset to that letter of the alphabet
+            
+            String encoded_letter = alphabet.DynamicArray.get(i, offset);
+            String[] encoded_message = new String[message.length];
+            message.DynamicArray.set(i + offset, letter);
+             
+        }
+        }
+
+        
+         
+     
 
     /** Decode a message using the cipher 
      * @param String message to decode
@@ -48,8 +69,9 @@ public class CaesarCipher {
     */
     public String decode(String message){
         // Fill in here and update return statement based on your code
-        return new String();
+        return new String(); // subtract offset from index
     }
+
 
     public static void main(String[] args) {
     }
