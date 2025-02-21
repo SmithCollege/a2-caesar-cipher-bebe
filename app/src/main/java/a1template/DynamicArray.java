@@ -5,14 +5,14 @@ package a1template;
 public class DynamicArray<T> implements IndexAccess<T>{
     
     // What instance variables do you need?
-    private String[] array; // inputted array
+    private T[] array; // inputted array
     private int offset; // amount for offset
 
     
 
 
     // Write a constructor to make a new DynamicArray Object from an array
-    public DynamicArray(int offset, String[] array){
+    public DynamicArray(int offset, T[] array){
         this.offset = offset;
         this.array = array;
     
