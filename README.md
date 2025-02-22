@@ -4,9 +4,9 @@
 
 Your readme should include the following information. Each student needs to submit all of this information independently, even when pair programming. 
 
-Programming Partner Name:
+Programming Partner Name: None
 
-Other Collaborators (and kudos to people who were especially helpful):
+Other Collaborators (and kudos to people who were especially helpful): None
 
 References Used: https://www.geeksforgeeks.org/iterate-over-the-characters-of-a-string-in-java/ I used this resource on the CaesarCipher.java class on line 48 to iterate over characters in a string message
 
@@ -14,7 +14,9 @@ References Used: https://www.geeksforgeeks.org/iterate-over-the-characters-of-a-
 ## Reflection Questions
 
 What was your favorite part of this assignment?
+I think it was fun to learn how the caesar cipher worked.
 
 What was most challenging about this assignment?
-
+It was difficult to understand what the classes and methods were supposed to be doing.
 General comments on your experience with this assignment:
+It was definitely confusing to understand but interesting!

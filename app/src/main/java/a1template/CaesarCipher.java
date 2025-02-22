@@ -2,6 +2,8 @@
 // Classes to build the project
 package a1template;
 
+import java.util.Arrays;
+
 public class CaesarCipher {
 
     /** Character array to store the letters in the alphabet in order */
@@ -21,43 +23,33 @@ public class CaesarCipher {
     public CaesarCipher(int offset){
         this.offset = offset;
         this.alphabet = new Character[26];
-        for (int i = 0; i < alphabet.length; i++) {
-            alphabet[i] = Character.valueOf((char) ('a' + i));
+        for (int i = 0; i < 26; i++) {
+            this.alphabet[i] = Character.valueOf((char) ('a' + i));
         }
-
-        this.cipher = new DynamicArray<Character>(offset, alphabet); // initializes cipher 
-        for (int i = 0; i < alphabet.length; i++){ // loop to add offset to cipher
-            if (i + offset < alphabet.length){
-                char letter = alphabet[i + offset]; // returns char at index + offset
-                cipher.set(i, letter); // sets new offsetted character to index
-            } 
-            else{
-                int beginning_offset = alphabet.length - (alphabet.length - offset);
-                char letter = alphabet[beginning_offset]; // sets chars that would be out of bounds to the beginning of alphabet
-                cipher.set(i, letter); // sets new offsetted character to index
-
-            }
-        }
+        this.cipher = new DynamicArray<Character>(offset, alphabet); // initializes cipher
         
-    }
-
+    
+        }
     /** Implementation of linear search that looks through the alphabet
      * array to identify the position of the passed value
      * @param val character to search for
      * @return int indicating position of val in the alphabet array
      */
     public int findIndex(char val){
-        int index = 0;
         for (int i = 0; i < alphabet.length; i++) {
-            if (alphabet[i] == val){ 
-                index = i; // gets the index of char in alphabet
+            if (alphabet[i] == val){
+                System.out.println(i);
+                return i; 
+            } 
             }
-            }
-            System.out.println(index);
-            return index;
-        
+            return -1;
+            
             
     }
+    
+        
+            
+    
         
 
     
@@ -66,13 +58,21 @@ public class CaesarCipher {
      * @param String message to encode
      * @return encoded message */  
     public String encode(String message){
-        int capacity = message.length();
-        StringBuilder new_message = new StringBuilder(capacity); // creates new_message for new chars to be added to
-        for (int i = 0; i < capacity; i++) { 
+        StringBuilder new_message = new StringBuilder(); // creates new_message for new chars to be added to
+        for (int i = 0; i < message.length(); i++) { 
             char letter = message.charAt(i); // get individual letter as a char
             int char_index = findIndex(letter);
-            char new_char = cipher.get(char_index); // sets new_char to index of cipher
-            new_message.append(new_char); // adds new char to new message 
+            if (char_index + offset < alphabet.length){
+                char ciphered_letter = cipher.get(char_index, offset);
+                new_message.append(ciphered_letter);
+                
+            } 
+            else{
+                int new_index = (alphabet.length - char_index)+ 1;
+                char ciphered_letter = cipher.get(new_index);
+                new_message.append(ciphered_letter); // gets char
+            }
+         
         } 
         System.out.println(new_message.toString());
         return new_message.toString();
@@ -88,25 +88,21 @@ public class CaesarCipher {
      * @return decoded message
     */
     public String decode(String message){
-        int capacity = message.length();
-        StringBuilder new_message = new StringBuilder(capacity); // creates new_message for new chars to be added to
-        for (int i = 0; i < capacity; i++) { 
+        StringBuilder new_message = new StringBuilder(); // creates new_message for new chars to be added to
+        for (int i = 0; i < message.length(); i++) { 
             char letter = message.charAt(i); // get individual letter as a char
             int char_index = findIndex(letter);
-            for (int j = 0; i < alphabet.length; i++){ // loop to add offset to cipher
-                if (j + offset < alphabet.length){
-                    char new_letter = alphabet[i + offset]; // returns char at index + offset
-                    cipher.set(i, new_letter); // sets new offsetted character to index
-                } 
-                else{
-                    int beginning_offset = alphabet.length - (alphabet.length - offset);
-                    char new_letter = alphabet[beginning_offset]; // sets chars that would be out of bounds to the beginning of alphabet
-                    cipher.set(i, new_letter); // sets new offsetted character to index
-    
-                }
-                }
-            char new_char = cipher.get(char_index); // sets new_char to index of cipher
-            new_message.append(new_char); // adds new char to new message 
+            if (char_index - offset > 0){
+                char ciphered_letter = alphabet[char_index - offset];
+                new_message.append(ciphered_letter);
+                
+            } 
+            else{
+                int new_index = (alphabet.length -char_index + 1);
+                char ciphered_letter = alphabet[new_index];
+                new_message.append(ciphered_letter); // gets char
+            }
+         
         } 
         System.out.println(new_message.toString());
         return new_message.toString();
@@ -117,14 +113,20 @@ public class CaesarCipher {
 
     public static void main(String[] args) {
         CaesarCipher caesar = new CaesarCipher(3);
-        // caesar.findIndex('a');
-        // caesar.findIndex('m');
-        caesar.encode("bebe");
-        caesar.encode("hello");
+        // caesar.findIndex('z');
+        // caesar.encode("zebra");
+        caesar.decode("cheud");
+        
+        //caesar.findIndex('f');
+        // caesar.encode("bebe");
+        // caesar.encode("hello");
+        // caesar.findIndex('z');
+        //caesar.encode("zello");
 
     
     }
 }
+
 
 
     

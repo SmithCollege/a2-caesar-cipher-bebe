@@ -32,24 +32,24 @@ package a1template;
 }
 
     
-//      @Test
-//      public void encodeTest(){
-//          CaesarCipher classUnderTest = new CaesarCipher(8);
-//          assertEquals("lzak ak s kwujwl ewkksyw", classUnderTest.encode("this is a secret message"));
+     @Test
+     public void encodeTest(){
+         CaesarCipher classUnderTest = new CaesarCipher(8);
+         assertEquals("lzak ak s kwujwl ewkksyw", classUnderTest.encode("this is a secret message"));
         
-//          classUnderTest = new CaesarCipher(3);
-//          assertEquals("qefp fpk'q sbov pbzobq.", classUnderTest.encode("this isn't very secret."));
-//      }
+         classUnderTest = new CaesarCipher(3);
+         assertEquals("qefp fpk'q sbov pbzobq.", classUnderTest.encode("this isn't very secret."));
+     }
 
-//      @Test
-//      public void decodeTest(){
-//         CaesarCipher classUnderTest = new CaesarCipher(8);
-//          assertEquals("this is a secret message", classUnderTest.decode("lzak ak s kwujwl ewkksyw"));
+     @Test
+     public void decodeTest(){
+        CaesarCipher classUnderTest = new CaesarCipher(8);
+         assertEquals("this is a secret message", classUnderTest.decode("lzak ak s kwujwl ewkksyw"));
         
-//          classUnderTest = new CaesarCipher(3);
-//          assertEquals("this isn't very secret.", classUnderTest.decode("qefp fpk'q sbov pbzobq."));
+         classUnderTest = new CaesarCipher(3);
+         assertEquals("this isn't very secret.", classUnderTest.decode("qefp fpk'q sbov pbzobq."));
 
-//      }
+     }
 
 
-//  }
+ }
