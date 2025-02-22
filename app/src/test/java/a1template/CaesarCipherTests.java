@@ -29,7 +29,6 @@ package a1template;
          assertEquals('w',classUnderTest.get(9));
          assertEquals('a',classUnderTest.get(13));
     }
-}
 
     
      @Test
